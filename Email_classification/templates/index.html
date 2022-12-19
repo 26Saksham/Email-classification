@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Classification</title>
+    <style>
+        tbody{
+            border: 1px solid gray;
+            border-collapse: collapse;
+        }
+        table{
+            border-collapse: collapse;
+                position: absolute;
+    bottom: 10%;
+    right: 8%;
+        }
+        td{
+             border: 1px solid gray;
+           
+        }
+        #textbox{
+            height: 10rem;
+    width: 50rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+     border-radius: 4px;
+           border-color: transparent;
+
+        }
+        #submitbtn{
+            display: flex;
+    padding: 12px;
+    margin: auto;
+    padding: 1rem;
+    margin-top: 20px;
+    justify-content: center;
+    width: 15rem;
+    border-radius: 5px;
+         border: 1px solid rosybrown;
+
+        }
+        .result{
+            text-align: center;
+            font-size: 36px;
+            padding: 5px;
+            margin: 10px;
+            transition: width 2s;
+        }
+        #textbox:focus{
+            background-color: azure;
+        }
+        #spam{
+color: green;
+        }
+        #notspam{
+            color: red;
+        }
+        #select1{
+            font-size: 16px;
+    padding: 5px;
+    margin: 5px;
+    border: transparent;
+    border-radius: 7px;
+    text-align: center;
+        }
+       
+    </style>
+    <script>
+        function fortesting(){
+            selectElement = document.querySelector('#select1');
+            output = selectElement.value;
+            document.querySelector('#textbox').value = output;
+        }
+         
+    </script>
+</head>
+
+<body style="background-color:antiquewhite ;">
+    <div style="text-align:center;padding: 10px;margin: 10px; background-image: url('./charlesdeluvio-d0lZVJjRuOE-unsplash.jpg');">
+    <h1 style="font-size:30px; padding:5px;">Email Classification 🔍</h1>
+    <div class="result">
+        {% if data == 'Spam'  %}
+        <div id="spam">
+           {{data}}
+        </div>
+        {% endif %}
+        {% if data != 'Spam' %}
+        <div id="notspam">
+            {{data}}
+        </div>
+        {% endif %}
+    </div>
+    <div style="margin: auto;
+    width: fit-content;">
+        <form action="/registerapp/emailCheck/" method="POST">
+            {% csrf_token %}
+            <input  id="textbox"  required type="text" name="emailText" id="emailText" />
+            <button id="submitbtn" type="submit"   id="submit">Submit</button>
+    </div>
+ 
+    </div>
+        <div>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>NAME</td>
+                        <td>Saksham Gupta</td>
+                    </tr>
+                    <tr>
+                        <td>Roll Number </td>
+                        <td>20I5050</td>
+                    </tr>
+                    <tr>
+                        <td>Enrollment Number </td>
+                        <td>DE20529</td>
+                    </tr>
+                    <tr>
+                        <td>Section </td>
+                        <td>IT-A</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <select id="select1" onchange="fortesting()">
+                <option >select for testing</option>
+                <option >WINNER!! As a valued network customer you have been selected to receivea å£900 prize reward! To claim call 09061701461.
+                Claim code KL341. Valid 12 hours only</option>
+                <option >I'm gonna be home soon and i don't want to talk about this stuff anymore tonight, k? I've cried enough today</option>
+            <option>I'm home. Ard wat time will u reach?</option>
+            <option>V skint too but fancied few bevies.waz gona go meet &othrs in spoon but jst bin watchng planet earth&sofa is v comfey</option>
+                        <option>REMINDER FROM O2: To get 2.50 pounds free call credit and details of great offers pls reply 2 this text with your valid
+                        name, house no and postcode</option>
+                        <option>,Hello! How's you and how did saturday go? I was just texting to see if you'd decided to do anything tomo. Not that i'm
+                        trying to invite myself or anything!</option>
+                        <option>Smile in Pleasure Smile in Pain Smile when trouble pours like Rain Smile when sum1 Hurts U Smile becoz SOMEONE still
+                        Loves to see u Smiling!!</option>
+                        <option>Your free ringtone is waiting to be collected. Simply text the password \MIX\"" to 85069 to verify. Get Usher and
+                        Britney. FML", PO Box 5249," MK17 92H. 450Ppw 16</option>
+        
+        </select>
+      
+        </div>
+</body>
+</html>
